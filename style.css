@@ -7,10 +7,9 @@ body {
 }
 
 .widgetImgs img {
-  display: inline-block;
+  display: inline;
   height: 200px;
   margin: 2%;
-  float: right;
 }
 
 .widgetImgs {

@@ -35,29 +35,25 @@ var usb = new widgetImage('usb', 'img/usb.gif', 0, 0);
 var waterCan = new widgetImage('water-can', 'img/water-can.jpg', 0, 0);
 var wineGlass = new widgetImage('wine-glass', 'img/wine-glass.jpg', 0, 0);
 
-// display 3 images on page via JS
-function renderWidgets() {
-  var firstWidgetSpot = document.getElementById('widget1');
-  var firstWidgetPic = document.createElement('img');
-  firstWidgetPic.src = bag.filepath;
-  firstWidgetSpot.appendChild(firstWidgetPic);
-  var firstWidgetSpot = document.getElementById('widget2');
-  var firstWidgetPic = document.createElement('img');
-  firstWidgetPic.src = bag.filepath;
-  firstWidgetSpot.appendChild(firstWidgetPic);
-  var firstWidgetSpot = document.getElementById('widget3');
-  var firstWidgetPic = document.createElement('img');
-  firstWidgetPic.src = bag.filepath;
-  firstWidgetSpot.appendChild(firstWidgetPic);
-}
-
-renderWidgets();
-
+//generate random numbers
 function randomNum() {
   return Math.floor(Math.random() * (allWidgets.length - 0) + 0);
 }
 
-// for loop that runs through the array of widgets and pulls back a number
-// for (var i = 0; i < allWidgets.length; i++) {
-//   array[i]
-// }
+// display 3 images on page via JS
+function renderWidgets() {
+  var firstWidgetSpot = document.getElementById('widget1');
+  var firstWidgetPic = document.createElement('img');
+  firstWidgetPic.src = allWidgets[randomNum()].filepath;
+  firstWidgetSpot.appendChild(firstWidgetPic);
+  var secondWidgetSpot = document.getElementById('widget2');
+  var secondWidgetPic = document.createElement('img');
+  secondWidgetPic.src = allWidgets[randomNum()].filepath;
+  secondWidgetSpot.appendChild(secondWidgetPic);
+  var thirdWidgetSpot = document.getElementById('widget3');
+  var thirdWidgetPic = document.createElement('img');
+  thirdWidgetPic.src = allWidgets[randomNum()].filepath;
+  thirdWidgetSpot.appendChild(thirdWidgetPic);
+}
+
+renderWidgets();
