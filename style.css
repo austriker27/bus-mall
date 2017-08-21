@@ -9,6 +9,11 @@ body {
 .widgetImgs img {
   display: inline-block;
   height: 200px;
-  margin: 5%;
-  padding: 5%;
+  margin: 2%;
+  float: right;
+}
+
+.widgetImgs {
+  width: 100%;
+  margin: auto;
 }
