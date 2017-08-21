@@ -21,7 +21,7 @@ var boots = new widgetImage('boots', 'img/boots.jpg ', 0, 0);
 var breakfast = new widgetImage('breakfast', 'img/breakfast.jpg', 0, 0);
 var bubblegum = new widgetImage('bubblegum', 'img/bubblegum.jpg ', 0, 0);
 var chair = new widgetImage('chair', 'img/chair.jpg', 0, 0);
-var cthulhhu = new widgetImage('cthulhhu', 'img/cthulhhu.jpg', 0, 0);
+var cthulhu = new widgetImage('cthulhu', 'img/cthulhu.jpg', 0, 0);
 var dogDuck = new widgetImage('dog-duck', 'img/dog-duck.jpg ', 0, 0);
 var dragon = new widgetImage('dragon', 'img/dragon.jpg', 0, 0);
 var pen = new widgetImage('pen', 'img/pen.jpg', 0, 0);
@@ -37,23 +37,39 @@ var wineGlass = new widgetImage('wine-glass', 'img/wine-glass.jpg', 0, 0);
 
 //generate random numbers
 function randomNum() {
-  return Math.floor(Math.random() * (allWidgets.length - 0) + 0);
+  return Math.floor(Math.random() * (allWidgets.length));
 }
 
 // display 3 images on page via JS
 function renderWidgets() {
   var firstWidgetSpot = document.getElementById('widget1');
   var firstWidgetPic = document.createElement('img');
-  firstWidgetPic.src = allWidgets[randomNum()].filepath;
+  var firstWidgetNum = randomNum();
+  console.log(firstWidgetNum);
+  firstWidgetPic.src = allWidgets[firstWidgetNum].filepath;
   firstWidgetSpot.appendChild(firstWidgetPic);
   var secondWidgetSpot = document.getElementById('widget2');
   var secondWidgetPic = document.createElement('img');
-  secondWidgetPic.src = allWidgets[randomNum()].filepath;
-  secondWidgetSpot.appendChild(secondWidgetPic);
-  var thirdWidgetSpot = document.getElementById('widget3');
-  var thirdWidgetPic = document.createElement('img');
-  thirdWidgetPic.src = allWidgets[randomNum()].filepath;
-  thirdWidgetSpot.appendChild(thirdWidgetPic);
+  var secondWidgetNum = randomNum();
+  if (secondWidgetNum === firstWidgetNum){
+    secondWidgetNum = randomNum();
+    // console.log(secondWidgetNum);
+  } else {
+    // console.log(secondWidgetNum);
+    secondWidgetPic.src = allWidgets[secondWidgetNum].filepath;
+    secondWidgetSpot.appendChild(secondWidgetPic);
+
+    var thirdWidgetSpot = document.getElementById('widget3');
+    var thirdWidgetPic = document.createElement('img');
+    var thirdWidgetNum = randomNum();
+    if (thirdWidgetNum === secondWidgetNum || thirdWidgetNum === firstWidgetNum) {
+      console.log(thirdWidgetNum);
+      thirdWidgetNum = randomNum();
+    } else {
+      thirdWidgetPic.src = allWidgets[thirdWidgetNum].filepath;
+      thirdWidgetSpot.appendChild(thirdWidgetPic);
+    }
+  }
 }
 
 renderWidgets();
