@@ -2,7 +2,13 @@
   border-style
 }
 
-.widgetImgs {
+body {
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+.widgetImgs img {
   display: inline-block;
-  height: 100px;
+  height: 200px;
+  margin: 5%;
+  padding: 5%;
 }
