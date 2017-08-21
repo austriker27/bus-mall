@@ -16,4 +16,4 @@ The Developer
 The Focus Group Member
 ⋅⋅* As a focus group member I want to only see a few images each time so its easy to pick between items.
 ⋅⋅* As a focus group member I want to have clear and concise directions for the focus group.
-⋅⋅* 
+⋅⋅* As a focus group member I want cookies...
