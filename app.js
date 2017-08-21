@@ -29,3 +29,14 @@ var unicorn = new widgetImage('unicorn', 'img/unicorn.jpg', 0, 0);
 var usb = new widgetImage('usb', 'img/usb.jpg', 0, 0);
 var waterCan = new widgetImage('water-can', 'img/water-can.jpg', 0, 0);
 var wineGlass = new widgetImage('wine-glass', 'img/wine-glass.jpg', 0, 0);
+
+// array of all widgetImgs
+var allWidgets = [ ];
+
+// display 3 images on page via JS
+function renderWidgets() {
+  var firstWidgetSpot = document.getElementById('widget1');
+  firstWidgetSpot.setAttribute = this.filepath;
+}
+
+renderWidgets();
