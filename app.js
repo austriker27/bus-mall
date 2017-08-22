@@ -40,19 +40,26 @@ function randomNum() {
   return Math.floor(Math.random() * (allWidgets.length));
 }
 
+// array of last 3 widgets shown on screen
+var lastThreeWidgets = [];
+console.log(lastThreeWidgets);
+
 // display 3 images on page via JS
 function renderWidgets() {
-  var lastThreeWidgets = [];
   var firstWidgetSpot = document.getElementById('widget1');
   var firstWidgetPic = document.createElement('img');
   var firstWidgetNum = randomNum();
+  console.log(lastThreeWidgets);
+  while (lastThreeWidgets.includes(firstWidgetNum)) {
+    firstWidgetNum = randomNum();
+  }
   console.log(firstWidgetNum);
   firstWidgetPic.src = allWidgets[firstWidgetNum].filepath;
   firstWidgetSpot.appendChild(firstWidgetPic);
   var secondWidgetSpot = document.getElementById('widget2');
   var secondWidgetPic = document.createElement('img');
   var secondWidgetNum = randomNum();
-  while (secondWidgetNum === firstWidgetNum) {
+  while (secondWidgetNum === firstWidgetNum || lastThreeWidgets.includes(secondWidgetNum)) {
     secondWidgetNum = randomNum();
   }
   secondWidgetPic.src = allWidgets[secondWidgetNum].filepath;
@@ -61,12 +68,17 @@ function renderWidgets() {
   var thirdWidgetSpot = document.getElementById('widget3');
   var thirdWidgetPic = document.createElement('img');
   var thirdWidgetNum = randomNum();
-  while (thirdWidgetNum === secondWidgetNum || thirdWidgetNum === firstWidgetNum) {
+  while (thirdWidgetNum === secondWidgetNum || thirdWidgetNum === firstWidgetNum || lastThreeWidgets.includes(thirdWidgetNum)) {
     thirdWidgetNum = randomNum();
   }
   thirdWidgetPic.src = allWidgets[thirdWidgetNum].filepath;
   thirdWidgetSpot.appendChild(thirdWidgetPic);
-  lastThreeWidgets.push('firstWidgetNum', 'secondWidgetNum', 'thirdWidgetNum');
+  lastThreeWidgets = [];
+  lastThreeWidgets.push(firstWidgetNum, secondWidgetNum, thirdWidgetNum);
 }
-
 renderWidgets();
+
+// add event listener to 3 images and count third
+var clickWidget1 = document.getElementById('widget1');
+
+submitInfo.addEventListener('submit', harvestAndPost);
