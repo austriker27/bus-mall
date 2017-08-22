@@ -100,7 +100,7 @@ function clickCounter(event) {
     if (allWidgets[i].id === event.target.id && clickCounter < maxClicks) {
       allWidgets[i].timesClicked++;
       clickCounter++;
-    } else if (clickCounter === maxClicks){
+    } else if (clickCounter === maxClicks) {
       clickWidget1.removeEventListener('click', clickCounter);
       clickWidget2.removeEventListener('click', clickCounter);
       clickWidget3.removeEventListener('click', clickCounter);
@@ -109,7 +109,12 @@ function clickCounter(event) {
       listAnchor.appendChild(clickList);
       for (var j = 0; j < allWidgets.length; j++) {
         var list = document.createElement('li');
-        list.innerText = allWidgets[j].timesClicked + ' votes for the ' + allWidgets[j].name + '.';
+        if (allWidgets[j].timesShown > 0 ) {
+          list.innerText = (allWidgets[j].timesClicked / allWidgets[j].timesShown * 100) + '% votes for the ' + allWidgets[j].name + '.';
+          clickList.appendChild(list);
+        } else {
+          list.innerText = allWidgets[j].name + ' was not shown.';
+        }
         clickList.appendChild(list);
       }
       break;
