@@ -42,6 +42,7 @@ function randomNum() {
 
 // display 3 images on page via JS
 function renderWidgets() {
+  var lastThreeWidgets = [];
   var firstWidgetSpot = document.getElementById('widget1');
   var firstWidgetPic = document.createElement('img');
   var firstWidgetNum = randomNum();
@@ -51,25 +52,21 @@ function renderWidgets() {
   var secondWidgetSpot = document.getElementById('widget2');
   var secondWidgetPic = document.createElement('img');
   var secondWidgetNum = randomNum();
-  if (secondWidgetNum === firstWidgetNum){
+  while (secondWidgetNum === firstWidgetNum) {
     secondWidgetNum = randomNum();
-    // console.log(secondWidgetNum);
-  } else {
-    // console.log(secondWidgetNum);
-    secondWidgetPic.src = allWidgets[secondWidgetNum].filepath;
-    secondWidgetSpot.appendChild(secondWidgetPic);
-
-    var thirdWidgetSpot = document.getElementById('widget3');
-    var thirdWidgetPic = document.createElement('img');
-    var thirdWidgetNum = randomNum();
-    if (thirdWidgetNum === secondWidgetNum || thirdWidgetNum === firstWidgetNum) {
-      console.log(thirdWidgetNum);
-      thirdWidgetNum = randomNum();
-    } else {
-      thirdWidgetPic.src = allWidgets[thirdWidgetNum].filepath;
-      thirdWidgetSpot.appendChild(thirdWidgetPic);
-    }
   }
+  secondWidgetPic.src = allWidgets[secondWidgetNum].filepath;
+  secondWidgetSpot.appendChild(secondWidgetPic);
+
+  var thirdWidgetSpot = document.getElementById('widget3');
+  var thirdWidgetPic = document.createElement('img');
+  var thirdWidgetNum = randomNum();
+  while (thirdWidgetNum === secondWidgetNum || thirdWidgetNum === firstWidgetNum) {
+    thirdWidgetNum = randomNum();
+  }
+  thirdWidgetPic.src = allWidgets[thirdWidgetNum].filepath;
+  thirdWidgetSpot.appendChild(thirdWidgetPic);
+  lastThreeWidgets.push('firstWidgetNum', 'secondWidgetNum', 'thirdWidgetNum');
 }
 
 renderWidgets();
