@@ -6,7 +6,6 @@ function widgetImage(name, filepath, timesShown, timesClicked) {
   this.filepath = filepath;
   this.timesShown = timesShown;
   this.timesClicked = timesClicked;
-
   allWidgets.push(this);
 };
 
@@ -42,18 +41,15 @@ function randomNum() {
 
 // array of last 3 widgets shown on screen
 var lastThreeWidgets = [];
-console.log(lastThreeWidgets);
 
 // display 3 images on page via JS
 function renderWidgets() {
   var firstWidgetSpot = document.getElementById('widget1');
   var firstWidgetPic = document.createElement('img');
   var firstWidgetNum = randomNum();
-  console.log(lastThreeWidgets);
   while (lastThreeWidgets.includes(firstWidgetNum)) {
     firstWidgetNum = randomNum();
   }
-  console.log(firstWidgetNum);
   firstWidgetPic.src = allWidgets[firstWidgetNum].filepath;
   firstWidgetSpot.appendChild(firstWidgetPic);
   var secondWidgetSpot = document.getElementById('widget2');
@@ -75,10 +71,32 @@ function renderWidgets() {
   thirdWidgetSpot.appendChild(thirdWidgetPic);
   lastThreeWidgets = [];
   lastThreeWidgets.push(firstWidgetNum, secondWidgetNum, thirdWidgetNum);
+  allWidgets[firstWidgetNum, secondWidgetNum, thirdWidgetNum].timesShown += 1;
 }
+
 renderWidgets();
+
+// function that adds to times clicked via event listener
+function widgetClicked(){
+  console.log('clicked on image 1');
+}
+
+function widgetClicked2(){
+  console.log('clicked on image 2');
+}
+
+function widgetClicked3(){
+  console.log('clicked on image 3');
+}
+
+// this.timesClicked += 1;
 
 // add event listener to 3 images and count third
 var clickWidget1 = document.getElementById('widget1');
+clickWidget1.addEventListener('click', widgetClicked);
 
-submitInfo.addEventListener('submit', harvestAndPost);
+var clickWidget2 = document.getElementById('widget2');
+clickWidget2.addEventListener('click', widgetClicked2);
+
+var clickWidget3 = document.getElementById('widget3');
+clickWidget3.addEventListener('click', widgetClicked3);
