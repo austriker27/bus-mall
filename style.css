@@ -8,11 +8,15 @@ body {
 
 .widgetImgs img {
   display: inline;
-  height: 200px;
+  height: 150px;
   margin: 2%;
 }
 
 .widgetImgs {
   width: 100%;
   margin: auto;
+}
+
+header {
+  text-align: center;
 }

@@ -15,7 +15,7 @@ The Developer
 ⋅⋅* As a developer I want the click testing to end after 25 clicks to avoid an infinite loop of clicks.
 
 The Focus Group Member
-⋅⋅* As a focus group member I want to only see a few images each time so its easy to pick between items.
+⋅⋅* As a focus group member I want to only see 3 images each round so its easy to pick between items.
 ⋅⋅* As a focus group member I want to have clear and concise directions for the focus group.
 ⋅⋅* As a focus group member I want cookies because they are good...
-⋅⋅* As a focus group member I want to see how many questions I've answered and how many more I left so I know how long the test will take. 
+⋅⋅* As a focus group member I want to see how many questions I've answered and how many more I left so I know how long the test will take.
