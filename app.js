@@ -26,18 +26,18 @@ var breakfast = new Widget ('breakfast', 'img/breakfast.jpg', 0, 0, 'breakfast')
 var bubblegum = new Widget ('bubblegum', 'img/bubblegum.jpg ', 0, 0, 'bubblegum');
 var chair = new Widget ('chair', 'img/chair.jpg', 0, 0, 'chair');
 var cthulhu = new Widget ('cthulhu', 'img/cthulhu.jpg', 0, 0, 'cthulhu');
-var dogDuck = new Widget ('dog-duck', 'img/dog-duck.jpg ', 0, 0, 'dogDuck');
+var dogDuck = new Widget ('dog duck', 'img/dog-duck.jpg ', 0, 0, 'dogDuck');
 var dragon = new Widget ('dragon', 'img/dragon.jpg', 0, 0, 'dragon');
 var pen = new Widget ('pen', 'img/pen.jpg', 0, 0, 'pen');
-var petSweep = new Widget ('pet-sweep', 'img/pet-sweep.jpg', 0, 0, 'petSweep');
+var petSweep = new Widget ('pet sweep', 'img/pet-sweep.jpg', 0, 0, 'petSweep');
 var scissors = new Widget ('scissors', 'img/scissors.jpg', 0, 0, 'scissors');
 var shark = new Widget ('shark', 'img/shark.jpg', 0, 0, 'shark');
 var sweep = new Widget ('sweep', 'img/sweep.png', 0, 0, 'sweep');
 var tauntaun = new Widget ('tauntaun', 'img/tauntaun.jpg', 0, 0, 'tauntaun');
 var unicorn = new Widget ('unicorn', 'img/unicorn.jpg', 0, 0, 'unicorn');
 var usb = new Widget ('usb', 'img/usb.gif', 0, 0, 'usb');
-var waterCan = new Widget ('water-can', 'img/water-can.jpg', 0, 0, 'waterCan');
-var wineGlass = new Widget ('wine-glass', 'img/wine-glass.jpg', 0, 0, 'wineGlass');
+var waterCan = new Widget ('water can', 'img/water-can.jpg', 0, 0, 'waterCan');
+var wineGlass = new Widget ('wine glass', 'img/wine-glass.jpg', 0, 0, 'wineGlass');
 
 //generate random numbers
 function randomNum() {
@@ -91,33 +91,29 @@ clickWidget2.addEventListener('click', clickCounter);
 
 var clickWidget3 = document.getElementById('widget3');
 clickWidget3.addEventListener('click', clickCounter);
-//
-// //event.target access the event in the browser
-// function widgetClicked(){
-//   console.log('is clicking working?');
-// }
 
+// count to count numbers of clicks
 var clickCounter = 0;
 
 function clickCounter(event) {
   for (var i = 0; i < allWidgets.length; i++) {
     if (allWidgets[i].id === event.target.id && clickCounter < maxClicks) {
-      allWidgets[i].timesClicked ++;
-      clickCounter ++;
-      renderWidgets();
+      allWidgets[i].timesClicked++;
+      clickCounter++;
     } else if (clickCounter === maxClicks){
-      widget1.removeEventListener('click', clickCounter, true);
-      widget2.removeEventListener('click', clickCounter, true);
-      widget3.removeEventListener('click', clickCounter, true);
+      clickWidget1.removeEventListener('click', clickCounter);
+      clickWidget2.removeEventListener('click', clickCounter);
+      clickWidget3.removeEventListener('click', clickCounter);
       var listAnchor = document.getElementById('listAnchor');
       var clickList = document.createElement('ul');
-      listAnchor.appendChild('clickList');
+      listAnchor.appendChild(clickList);
       for (var j = 0; j < allWidgets.length; j++) {
         var list = document.createElement('li');
-        list.innerText = widgetList[j].timesClicked + 'votes for the ' + widgetList[j].name + ' .';
+        list.innerText = allWidgets[j].timesClicked + ' votes for the ' + allWidgets[j].name + '.';
         clickList.appendChild(list);
       }
       break;
     }
   }
+  renderWidgets();
 }
