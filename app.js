@@ -11,7 +11,6 @@ function Widget (name, filepath, timesShown, timesClicked, id) {
   this.timesClicked = timesClicked;
   this.id = id;
   allWidgets.push(this);
-
 };
 
 // array of all widgetImgs
@@ -95,17 +94,18 @@ var clickWidget3 = document.getElementById('widget3');
 clickWidget3.addEventListener('click', clickCounter);
 
 // count to count numbers of clicks
-var clickCounter = 0;
+var clkCntr = 0;
 
 function clickCounter(event) {
   for (var i = 0; i < allWidgets.length; i++) {
-    if (allWidgets[i].id === event.target.id && clickCounter < maxClicks) {
+    if (allWidgets[i].id === event.target.id && clkCntr < maxClicks) {
       allWidgets[i].timesClicked++;
-      clickCounter++;
-    } else if (clickCounter === maxClicks) {
+      clkCntr++;
+    } else if (clkCntr === maxClicks) {
       clickWidget1.removeEventListener('click', clickCounter);
       clickWidget2.removeEventListener('click', clickCounter);
       clickWidget3.removeEventListener('click', clickCounter);
+      console.log(clickWidget1, clickWidget2, clickWidget3);
       var listAnchor = document.getElementById('listAnchor');
       var clickList = document.createElement('ul');
       listAnchor.appendChild(clickList);
@@ -119,8 +119,7 @@ function clickCounter(event) {
         }
         clickList.appendChild(list);
       }
-      clickCounter++;
-      break;
+      clkCntr++;
     }
   }
   renderWidgets();
