@@ -7,6 +7,12 @@ function widgetImage(name, filepath, timesShown, timesClicked) {
   this.timesShown = timesShown;
   this.timesClicked = timesClicked;
   allWidgets.push(this);
+
+  var clickWidget3 = document.getElementById('widget3');
+  clickWidget3.addEventListener('click', function(){
+    bag.timesClicked += 1;
+  });
+
 };
 
 // array of all widgetImgs
@@ -75,28 +81,32 @@ function renderWidgets() {
 }
 
 renderWidgets();
-
-// function that adds to times clicked via event listener
-function widgetClicked(){
-  console.log('clicked on image 1');
-}
-
-function widgetClicked2(){
-  console.log('clicked on image 2');
-}
-
-function widgetClicked3(){
-  console.log('clicked on image 3');
-}
-
-// this.timesClicked += 1;
-
-// add event listener to 3 images and count third
-var clickWidget1 = document.getElementById('widget1');
-clickWidget1.addEventListener('click', widgetClicked);
-
-var clickWidget2 = document.getElementById('widget2');
-clickWidget2.addEventListener('click', widgetClicked2);
-
-var clickWidget3 = document.getElementById('widget3');
-clickWidget3.addEventListener('click', widgetClicked3);
+//
+// // function that adds to times clicked via event listener
+// function widgetClicked(event){
+//   console.log(event);
+//   var theElement = event.target;
+//   console.log(theElement);
+// }
+//
+// // //event.target access the event in the browser
+// //
+// // function widgetClicked2(){
+// //   console.log('clicked on image 2');
+// // }
+// //
+// // function widgetClicked3(){
+// //   console.log('clicked on image 3');
+// // }
+//
+// // this.timesClicked += 1;
+// //
+// // add event listener to 3 images and count third
+// var clickWidget1 = document.getElementById('widget1');
+// clickWidget1.addEventListener('click', widgetClicked);
+//
+// var clickWidget2 = document.getElementById('widget2');
+// clickWidget2.addEventListener('click', widgetClicked2);
+//
+// var clickWidget3 = document.getElementById('widget3');
+// clickWidget3.addEventListener('click', widgetClicked3);
