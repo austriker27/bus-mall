@@ -51,11 +51,11 @@ function renderWidgets() {
   var firstWidgetSpot = document.getElementById('widget1');
   var firstWidgetPic = firstWidgetSpot.children[0];
   var firstWidgetNum = randomNum();
+  var firstWidgetPic = setAttribute('this.name');
   while (lastThreeWidgets.includes(firstWidgetNum)) {
     firstWidgetNum = randomNum();
   }
   firstWidgetPic.src = allWidgets[firstWidgetNum].filepath;
-  // firstWidgetSpot.appendChild(firstWidgetPic);
 
   var secondWidgetSpot = document.getElementById('widget2');
   var secondWidgetPic = secondWidgetSpot.children[0];
@@ -79,13 +79,6 @@ function renderWidgets() {
 }
 renderWidgets();
 
-// function that adds to times clicked via event listener
-function widgetClicked(event){
-  console.log(event);
-  var theElement = event.target;
-  console.log(theElement);
-}
-
 //event.target access the event in the browser
 function widgetClicked1(){
   console.log('clicked on image 1');
@@ -103,7 +96,7 @@ this.timesClicked += 1;
 
 // add event listener to 3 images and count clicks
 var clickWidget1 = document.getElementById('widget1');
-clickWidget1.addEventListener('click', widgetClicked);
+clickWidget1.addEventListener('click', widgetClicked1);
 
 var clickWidget2 = document.getElementById('widget2');
 clickWidget2.addEventListener('click', widgetClicked2);
@@ -112,6 +105,6 @@ var clickWidget3 = document.getElementById('widget3');
 clickWidget3.addEventListener('click', widgetClicked3);
 
 // remove event listeners
-widget1.removeEventListener('click', this.widgetClicked);
-widget2.removeEventListener('click', this.widgetClicked);
-widget3.removeEventListener('click', this.widgetClicked);
+// widget1.removeEventListener('click', this.widgetClicked);
+// widget2.removeEventListener('click', this.widgetClicked);
+// widget3.removeEventListener('click', this.widgetClicked);
