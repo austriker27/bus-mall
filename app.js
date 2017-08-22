@@ -84,35 +84,40 @@ renderWidgets();
 
 // add event listener to 3 images and count clicks
 var clickWidget1 = document.getElementById('widget1');
-clickWidget1.addEventListener('click', widgetClicked);
+clickWidget1.addEventListener('click', clickCounter);
 
 var clickWidget2 = document.getElementById('widget2');
-clickWidget2.addEventListener('click', widgetClicked);
+clickWidget2.addEventListener('click', clickCounter);
 
 var clickWidget3 = document.getElementById('widget3');
-clickWidget3.addEventListener('click', widgetClicked);
-
-//event.target access the event in the browser
-function widgetClicked(){
-  console.log('is clicking working?');
-}
+clickWidget3.addEventListener('click', clickCounter);
+//
+// //event.target access the event in the browser
+// function widgetClicked(){
+//   console.log('is clicking working?');
+// }
 
 var clickCounter = 0;
 
 function clickCounter(event) {
   for (var i = 0; i < allWidgets.length; i++) {
-    if (allWidget[i].id === event.target.id && clickCounter < maxClicks) {
+    if (allWidgets[i].id === event.target.id && clickCounter < maxClicks) {
       allWidgets[i].timesClicked ++;
       clickCounter ++;
       renderWidgets();
     } else if (clickCounter === maxClicks){
-      widget1.removeEventListener('click', widgetClicked, true);
-      widget2.removeEventListener('click', widgetClicked, true);
-      widget3.removeEventListener('click', widgetClicked, true);
-      var listAnchor = document.getElementbyId('listAnchor')
-
+      widget1.removeEventListener('click', clickCounter, true);
+      widget2.removeEventListener('click', clickCounter, true);
+      widget3.removeEventListener('click', clickCounter, true);
+      var listAnchor = document.getElementById('listAnchor');
+      var clickList = document.createElement('ul');
+      listAnchor.appendChild('clickList');
+      for (var j = 0; j < allWidgets.length; j++) {
+        var list = document.createElement('li');
+        list.innerText = widgetList[j].timesClicked + 'votes for the ' + widgetList[j].name + ' .';
+        clickList.appendChild(list);
+      }
+      break;
     }
   }
 }
-
-// remove event listeners
