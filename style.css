@@ -1,0 +1,18 @@
+* {
+  border-style
+}
+
+body {
+  background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
+}
+
+.widgetImgs img {
+  display: inline;
+  height: 200px;
+  margin: 2%;
+}
+
+.widgetImgs {
+  width: 100%;
+  margin: auto;
+}
