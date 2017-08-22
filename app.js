@@ -78,7 +78,9 @@ function renderWidgets() {
 
   lastThreeWidgets = [];
   lastThreeWidgets.push(firstWidgetNum, secondWidgetNum, thirdWidgetNum);
-  allWidgets[firstWidgetNum, secondWidgetNum, thirdWidgetNum].timesShown += 1;
+  allWidgets[firstWidgetNum].timesShown += 1;
+  allWidgets[secondWidgetNum].timesShown += 1;
+  allWidgets[thirdWidgetNum].timesShown += 1;
 }
 renderWidgets();
 
@@ -117,6 +119,7 @@ function clickCounter(event) {
         }
         clickList.appendChild(list);
       }
+      clickCounter++;
       break;
     }
   }
