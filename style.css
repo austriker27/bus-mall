@@ -10,6 +10,7 @@ body {
   display: inline;
   height: 150px;
   margin: 2%;
+  border-radius: 15px;
 }
 
 .widgetImgs {
@@ -19,4 +20,8 @@ body {
 
 header {
   text-align: center;
+}
+
+header img {
+  height: 200px;
 }
