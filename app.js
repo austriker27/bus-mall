@@ -1,7 +1,7 @@
 'use strict';
 
 //setting variable for max clicks for testing
-var maxClicks = 3;
+var maxClicks = 5;
 
 // use a widgets constructor with properties for all images
 function Widget (name, filepath, timesShown, timesClicked, id) {
@@ -13,7 +13,7 @@ function Widget (name, filepath, timesShown, timesClicked, id) {
   allWidgets.push(this);
 };
 
-// array of all widgetImgs
+// array of all widget contructor instances
 var allWidgets = [];
 
 // all instances of each image
@@ -112,7 +112,7 @@ function clickCounter(event) {
       for (var j = 0; j < allWidgets.length; j++) {
         var list = document.createElement('li');
         if (allWidgets[j].timesShown > 0 ) {
-          list.innerText = (allWidgets[j].timesClicked / allWidgets[j].timesShown * 100) + '% votes for the ' + allWidgets[j].name + '.';
+          list.innerText = Math.round(allWidgets[j].timesClicked / allWidgets[j].timesShown * 100) + '% votes for the ' + allWidgets[j].name + '.';
           clickList.appendChild(list);
         } else {
           list.innerText = allWidgets[j].name + ' was not shown.';
@@ -124,3 +124,60 @@ function clickCounter(event) {
   }
   renderWidgets();
 }
+
+// build a function that runs through the constructor and pulls back name and times clicked
+// run an if statement for any constructor instance that has times clicked > 0 then return name and times clicked into an array
+//
+//
+
+var itemsClickedMoreThanOnceName = [];
+var itemsClickedMoreThanOnce = [];
+
+function chartMaker() {
+  for (var i = 0; i < allWidgets.length; i++) {
+    if (allWidgets[i].timesShown > 0 ) {
+      itemsClickedMoreThanOnceName.push(allWidgets[i].name);
+      itemsClickedMoreThanOnce.push(allWidgets[i].timesClicked);
+    }
+  }
+};
+
+chartMaker();
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: itemsClickedMoreThanOnceName,
+    datasets: [{
+      label: '# of Votes',
+      data: itemsClickedMoreThanOnce,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});
