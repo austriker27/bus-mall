@@ -114,20 +114,6 @@ function clickCounter(event) {
       clickWidget1.removeEventListener('click', clickCounter);
       clickWidget2.removeEventListener('click', clickCounter);
       clickWidget3.removeEventListener('click', clickCounter);
-      console.log(clickWidget1, clickWidget2, clickWidget3);
-      // var listAnchor = document.getElementById('listAnchor');
-      // var clickList = document.createElement('ul');
-      // listAnchor.appendChild(clickList);
-      // for (var j = 0; j < allWidgets.length; j++) {
-      //   var list = document.createElement('li');
-      //   if (allWidgets[j].timesShown > 0 ) {
-      //     list.innerText = Math.round(allWidgets[j].timesClicked / allWidgets[j].timesShown * 100) + '% votes for the ' + allWidgets[j].name + '.';
-      //     clickList.appendChild(list);
-      //   } else {
-      //     list.innerText = allWidgets[j].name + ' was not shown.';
-      //   }
-      //   clickList.appendChild(list);
-
       chartMaker();
       new Chart(ctx, newChart);
       clkCntr++;
@@ -139,9 +125,6 @@ function clickCounter(event) {
 
 // build a function that runs through the constructor and pulls back name and times clicked
 // run an if statement for any constructor instance that has times clicked > 0 then return name and times clicked into an array
-//
-//
-
 var itemsClickedMoreThanOnceName = [];
 var itemsClickedMoreThanOnce = [];
 
