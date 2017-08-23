@@ -16,7 +16,7 @@ There's a constructor for the image list that show up in the page.
 
 ## Collaboration
 
-This project was primarily developed by David A. Lindahl with help from my classmates Mark Reynoso, Shayne Reed Smith and Gabe Surname.
+This project was primarily developed by David A. Lindahl with help from my classmates Mark Reynoso, Shayne Reed Smith and Gabe Merlingolo. The chartjs and local storage components were a pair programming project (Navigator: David L, Driver: Max McFarland). 
 
 
 
