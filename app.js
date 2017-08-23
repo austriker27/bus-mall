@@ -130,14 +130,17 @@ function clickCounter(event) {
 //
 //
 
+var itemsClickedMoreThanOnceName = [];
 var itemsClickedMoreThanOnce = [];
 
 function chartMaker () {
   for (var i = 0; i < allWidgets.length; i++) {
     if (allWidgets[i].timesShown > 0 ) {
-      itemsClickedMoreThanOnce.push.allWidgets[i].name;
-}
-
+      itemsClickedMoreThanOnceName.push.allWidgets[i].name;
+      itemsClickedMoreThanOnceName.push.allWidgets[i].timesClicked;
+    }
+  }
+};
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
