@@ -109,18 +109,6 @@ function clickCounter(event) {
       var listAnchor = document.getElementById('listAnchor');
       var clickList = document.createElement('ul');
       listAnchor.appendChild(clickList);
-      var itemsClickedMoreThanOnceName = [];
-      var itemsClickedMoreThanOnce = [];
-      function chartMaker () {
-        for (var i = 0; i < allWidgets.length; i++) {
-          if (allWidgets[i].timesShown > 0 ) {
-            itemsClickedMoreThanOnceName.push(allWidgets[i].name);
-            itemsClickedMoreThanOnce.push(allWidgets[i].timesClicked);
-          }
-          chart(itemsClickedMoreThanOnceName,itemsClickedMoreThanOnce);
-        }
-      };
-
       for (var j = 0; j < allWidgets.length; j++) {
         var list = document.createElement('li');
         if (allWidgets[j].timesShown > 0 ) {
@@ -141,43 +129,53 @@ function clickCounter(event) {
 // run an if statement for any constructor instance that has times clicked > 0 then return name and times clicked into an array
 //
 //
-// function chart(itemsClickedMoreThanOnceName,itemsClickedMoreThanOnce) {
 
-  var ctx = document.getElementById('myChart').getContext('2d');
-  var myChart = new Chart(ctx, {
-    type: 'bar',
-    data: {
-      labels: 'itemsClickedMoreThanOnceName',
-      datasets: [{
-        label: '# of Votes',
-        data: itemsClickedMoreThanOnce,
-        backgroundColor: [
-          'rgba(255, 99, 132, 0.2)',
-          'rgba(54, 162, 235, 0.2)',
-          'rgba(255, 206, 86, 0.2)',
-          'rgba(75, 192, 192, 0.2)',
-          'rgba(153, 102, 255, 0.2)',
-          'rgba(255, 159, 64, 0.2)'
-        ],
-        borderColor: [
-          'rgba(255,99,132,1)',
-          'rgba(54, 162, 235, 1)',
-          'rgba(255, 206, 86, 1)',
-          'rgba(75, 192, 192, 1)',
-          'rgba(153, 102, 255, 1)',
-          'rgba(255, 159, 64, 1)'
-        ],
-        borderWidth: 1
-      }]
-    },
-    options: {
-      scales: {
-        yAxes: [{
-          ticks: {
-            beginAtZero:true
-          }
-        }]
-      }
+var itemsClickedMoreThanOnceName = [];
+var itemsClickedMoreThanOnce = [];
+
+function chartMaker() {
+  for (var i = 0; i < allWidgets.length; i++) {
+    if (allWidgets[i].timesShown > 0 ) {
+      itemsClickedMoreThanOnceName.push(allWidgets[i].name);
+      itemsClickedMoreThanOnceName.push(allWidgets[i].timesClicked);
     }
-  });
-// }
+  }
+};
+
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: itemsClickedMoreThanOnceName,
+    datasets: [{
+      label: '# of Votes',
+      data: itemsClickedMoreThanOnce,
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)'
+      ],
+      borderColor: [
+        'rgba(255,99,132,1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)'
+      ],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      yAxes: [{
+        ticks: {
+          beginAtZero:true
+        }
+      }]
+    }
+  }
+});
