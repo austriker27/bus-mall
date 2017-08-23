@@ -1,7 +1,7 @@
 'use strict';
 
 //setting variable for max clicks for testing
-var maxClicks = 3;
+var maxClicks = 5;
 
 // use a widgets constructor with properties for all images
 function Widget (name, filepath, timesShown, timesClicked, id) {
@@ -106,13 +106,25 @@ function clickCounter(event) {
       clickWidget2.removeEventListener('click', clickCounter);
       clickWidget3.removeEventListener('click', clickCounter);
       console.log(clickWidget1, clickWidget2, clickWidget3);
-      var listAnchor = document.getElementById('listAnchor');
-      var clickList = document.createElement('ul');
-      listAnchor.appendChild(clickList);
+      // var listAnchor = document.getElementById('listAnchor');
+      // var clickList = document.createElement('ul');
+      // listAnchor.appendChild(clickList);
+      var itemsClickedMoreThanOnceName = [];
+      var itemsClickedMoreThanOnce = [];
+      function chartMaker () {
+        for (var i = 0; i < allWidgets.length; i++) {
+          if (allWidgets[i].timesShown > 0 ) {
+            itemsClickedMoreThanOnceName.push(allWidgets[i].name);
+            itemsClickedMoreThanOnce.push(allWidgets[i].timesClicked);
+          }
+          chart(itemsClickedMoreThanOnceName,itemsClickedMoreThanOnce);
+        }
+      };
+
       for (var j = 0; j < allWidgets.length; j++) {
         var list = document.createElement('li');
         if (allWidgets[j].timesShown > 0 ) {
-          list.innerText = (allWidgets[j].timesClicked / allWidgets[j].timesShown * 100) + '% votes for the ' + allWidgets[j].name + '.';
+          list.innerText = Math.round(allWidgets[j].timesClicked / allWidgets[j].timesShown * 100) + '% votes for the ' + allWidgets[j].name + '.';
           clickList.appendChild(list);
         } else {
           list.innerText = allWidgets[j].name + ' was not shown.';
@@ -129,27 +141,16 @@ function clickCounter(event) {
 // run an if statement for any constructor instance that has times clicked > 0 then return name and times clicked into an array
 //
 //
-
-var itemsClickedMoreThanOnceName = [];
-var itemsClickedMoreThanOnce = [];
-
-function chartMaker () {
-  for (var i = 0; i < allWidgets.length; i++) {
-    if (allWidgets[i].timesShown > 0 ) {
-      itemsClickedMoreThanOnceName.push.allWidgets[i].name;
-      itemsClickedMoreThanOnceName.push.allWidgets[i].timesClicked;
-    }
-  }
-};
+function chart(itemsClickedMoreThanOnceName,itemsClickedMoreThanOnce) {
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+    labels: itemsClickedMoreThanOnceName,
     datasets: [{
       label: '# of Votes',
-      data: [12, 19, 3, 5, 2, 3],
+      data: itemsClickedMoreThanOnce,
       backgroundColor: [
         'rgba(255, 99, 132, 0.2)',
         'rgba(54, 162, 235, 0.2)',
@@ -179,3 +180,4 @@ var myChart = new Chart(ctx, {
     }
   }
 });
+}
