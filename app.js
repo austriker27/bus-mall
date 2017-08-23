@@ -13,7 +13,7 @@ function Widget (name, filepath, timesShown, timesClicked, id) {
   allWidgets.push(this);
 };
 
-// array of all widgetImgs
+// array of all widget contructor instances
 var allWidgets = [];
 
 // all instances of each image
@@ -137,10 +137,12 @@ function chartMaker() {
   for (var i = 0; i < allWidgets.length; i++) {
     if (allWidgets[i].timesShown > 0 ) {
       itemsClickedMoreThanOnceName.push(allWidgets[i].name);
-      itemsClickedMoreThanOnceName.push(allWidgets[i].timesClicked);
+      itemsClickedMoreThanOnce.push(allWidgets[i].timesClicked);
     }
   }
 };
+
+chartMaker();
 
 var ctx = document.getElementById('myChart').getContext('2d');
 var myChart = new Chart(ctx, {
