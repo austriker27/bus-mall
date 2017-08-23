@@ -1,7 +1,7 @@
 'use strict';
 
 //setting variable for max clicks for testing
-var maxClicks = 5;
+var maxClicks = 25;
 
 // use a widgets constructor with properties for all images
 function Widget (name, filepath, timesShown, timesClicked, id) {
@@ -98,7 +98,7 @@ var clkCntr = 0;
 
 function clickCounter(event) {
   for (var i = 0; i < allWidgets.length; i++) {
-    if (allWidgets[i].id === event.target.id && clkCntr < maxClicks) {
+    if (allWidgets[i].id == event.target.id && clkCntr < maxClicks) {
       allWidgets[i].timesClicked++;
       clkCntr++;
     } else if (clkCntr === maxClicks) {
@@ -119,6 +119,8 @@ function clickCounter(event) {
         }
         clickList.appendChild(list);
       }
+      chartMaker();
+      new Chart(ctx, newChart);
       clkCntr++;
     }
   }
@@ -142,10 +144,8 @@ function chartMaker() {
   }
 };
 
-chartMaker();
-
 var ctx = document.getElementById('myChart').getContext('2d');
-var myChart = new Chart(ctx, {
+var newChart = {
   type: 'bar',
   data: {
     labels: itemsClickedMoreThanOnceName,
@@ -180,4 +180,4 @@ var myChart = new Chart(ctx, {
       }]
     }
   }
-});
+};
