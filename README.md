@@ -8,7 +8,10 @@ BusMall is an application that provides a focus group member (aka user) with 3 r
 Need a catalog of the products you want to show in the page.
 There's a constructor for the image list that show up in the page.
 
-## Getting Started
+## Fonts Used
+* [Montserrat](https://fonts.google.com/specimen/Montserrat) - Title Font via Google Fonts
+* [Roboto](https://fonts.google.com/specimen/Roboto) - Body font via Google Fonts
+
 
 ### Prerequisites
 
@@ -16,7 +19,7 @@ There's a constructor for the image list that show up in the page.
 
 ## Collaboration
 
-This project was primarily developed by David A. Lindahl with help from my classmates Mark Reynoso, Shayne Reed Smith and Gabe Merlingolo. The chartjs and local storage components were a pair programming project (Navigator: David L, Driver: Max McFarland). 
+This project was primarily developed by David A. Lindahl with help from my classmates Mark Reynoso, Shayne Reed Smith and Gabe Merlingolo. The chartjs and local storage components were a pair programming project (Navigator: David L, Driver: Max McFarland).
 
 
 
