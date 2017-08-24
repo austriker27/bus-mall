@@ -136,12 +136,13 @@ function chartMaker() {
       itemsClickedMoreThanOnceName.push(allWidgets[i].name);
       itemsClickedMoreThanOnce.push(allWidgets[i].timesClicked);
       itemsClickedTimesShown.push(allWidgets[i].timesShown);
-      itemsClickedPercentage.push(allWidgets[i].timesClicked / allWidgets[i].timesShown * 100);
+      itemsClickedPercentage.push(Math.ceil(allWidgets[i].timesClicked / allWidgets[i].timesShown * 100));
     }
   }
 };
 
 var ctx = document.getElementById('myChart').getContext('2d');
+
 var newChart = {
   type: 'bar',
   data: {
@@ -196,7 +197,7 @@ var newChart = {
         ],
         borderWidth: 1,
       },{
-        label: '# of Votes',
+        label: 'Percentage of Clicks when Shown',
         data: itemsClickedPercentage,
         backgroundColor: [
           'rgba(255, 99, 132, 0.2)',

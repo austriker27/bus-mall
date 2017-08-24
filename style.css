@@ -23,16 +23,17 @@ text-align: justify;
   width: 20%;
   margin: 2%;
   border-radius: 10px;
+  max-height: 300px;
 }
 
 .widgetImgs {
-  margin: 0 auto;
+  text-align: center;
 }
 
-#widget1, #widget2, #widget3 {
+/*#widget1, #widget2, #widget3 {
   margin: 0 auto;
   width: 80em;
-}
+}*/
 
 header {
   font-family: 'Montserrat', sans-serif;
