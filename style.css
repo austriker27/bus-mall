@@ -8,7 +8,14 @@ body {
   font-family: 'Roboto', sans-serif;
 }
 
-p {
+h5 {
+  text-align: center;
+  font-family: 'Roboto', sans-serif;
+  font-size: 0.8em;
+  padding: 3% 3% 3% 3%;
+}
+
+#textDirections p {
 font-size: 1.1em;
 background: -webkit-linear-gradient(#fa709a 0%, #fee140 100%);
 -webkit-background-clip: text;
@@ -16,6 +23,7 @@ background: -webkit-linear-gradient(#fa709a 0%, #fee140 100%);
 padding: 5% 2% 5% 2%;
 margin: 0 0 0 0;
 text-align: justify;
+line-height: 2;
 }
 
 .widgetImgs img {
@@ -29,11 +37,6 @@ text-align: justify;
 .widgetImgs {
   text-align: center;
 }
-
-/*#widget1, #widget2, #widget3 {
-  margin: 0 auto;
-  width: 80em;
-}*/
 
 header {
   font-family: 'Montserrat', sans-serif;
@@ -65,8 +68,9 @@ header img {
 }
 
 #myChart {
-  height: 20%;
-  min-height: 200px;
+  min-height: 100px;
   background-color: black;
   width: 100%;
+  padding: 1% 1% 1% 1%;
+
 }
